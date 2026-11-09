@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
+<title>Vector Lab — 2D Physics Engine</title>
+</head>
+<body>
+<div id="app">
+<header>
+  <div class="brand"><div class="logo">∑</div><div><h1>VECTOR LAB</h1><p>Interactive 2D physics engine · v0.1</p></div></div>
+  <div class="status">● ENGINE READY &nbsp;·&nbsp; SI UNITS</div>
+</header>
+<main>
+  <section class="intro">
+    <div><div class="eyebrow">Your virtual physics laboratory</div><h2>Motion &amp; forces</h2><p>Change the conditions, run the experiment, and watch the physics unfold.</p></div>
+    <div style="font-size:11px;color:light-dark(#66818A,#A6BBC1)">MODULE 01 / 08</div>
+  </section>
+  <section class="grid">
+    <div class="panel">
+      <div class="panel-head"><h3>Simulation viewport</h3><span id="simState">PAUSED</span></div>
+      <div class="canvas-wrap"><canvas id="scene" width="900" height="520" aria-label="2D physics simulation showing a moving ball on a horizontal surface"></canvas></div>
+      <div class="toolbar">
+        <button class="primary" id="play">▶ Run simulation</button>
+        <button id="step">Step +0.1 s</button>
+        <button id="reset">↺ Reset</button>
+        <button id="trail">Trail: On</button>
+      </div>
+      <div class="metrics">
+        <div class="metric"><small>TIME</small><strong id="time">0.00 s</strong></div>
+        <div class="metric"><small>POSITION</small><strong id="position">0.00 m</strong></div>
+        <div class="metric"><small>VELOCITY</small><strong id="velocity">0.00 m/s</strong></div>
+      </div>
+      <div class="note">Model: constant horizontal acceleration on a level, frictionless track. The ball is a visual marker; the simulation uses SI units and a fixed physics time step.</div>
+    </div>
+    <aside class="side">
+      <div class="panel">
+        <div class="panel-head"><h3>Experiment settings</h3><span>LIVE PARAMETERS</span></div>
+        <div class="control-body">
+          <div class="field"><label for="mass">Mass <output id="massVal">2.0 kg</output></label><input id="mass" type="range" min="0.5" max="10" step="0.5" value="2"></div>
+          <div class="field"><label for="force">Applied force <output id="forceVal">4.0 N</output></label><input id="force" type="range" min="-10" max="10" step="0.5" value="4"></div>
+          <div class="field"><label for="initial">Initial velocity <output id="initialVal">1.0 m/s</output></label><input id="initial" type="range" min="-5" max="10" step="0.5" value="1"></div>
+          <div class="field"><label for="gravity">Gravity <output id="gravityVal">9.81 m/s²</output></label><input id="gravity" type="range" min="0" max="20" step="0.01" value="9.81"></div>
+          <div class="field"><label for="mode">Experiment</label><select id="mode"><option value="horizontal">Horizontal motion</option><option value="projectile">Projectile motion</option></select></div>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="panel-head"><h3>Calculated physics</h3><span>NEWTON'S 2ND LAW</span></div>
+        <div class="control-body" style="gap:10px">
+          <div class="field"><label>Acceleration</label><output id="accel">2.00 m/s²</output></div>
+          <div class="field"><label>Net force</label><output id="netforce">4.00 N</output></div>
+          <div class="field"><label>Displacement</label><output id="disp">0.00 m</output></div>
+          <div class="field"><label>Vertical height</label><output id="height">0.00 m</output></div>
+        </div>
+        <div class="note">Newton's second law: acceleration is the net force divided by mass. In projectile mode, horizontal and vertical motions are calculated independently.</div>
+      </div>
+    </aside>
+  </section>
+  <section class="module-list" aria-label="Physics modules">
+    <div class="module active"><div class="ico">↗</div><b>Motion &amp; forces</b><small>Position, velocity, acceleration and Newton's laws</small></div>
+    <div class="module"><div class="ico">🌍</div><b>Gravity &amp; projectiles</b><small>Free fall, trajectories and gravitational fields</small></div>
+    <div class="module"><div class="ico">◉</div><b>Collision &amp; momentum</b><small>Impulse, elastic and inelastic collisions</small></div>
+    <div class="module"><div class="ico">〰</div><b>Waves &amp; oscillations</b><small>Wave motion, frequency and simple harmonic motion</small></div>
+    <div class="module"><div class="ico">⚡</div><b>Electric &amp; magnetic fields</b><small>Charges, fields and Lorentz force</small></div>
+    <div class="module"><div class="ico">💧</div><b>Fluids &amp; pressure</b><small>Density, buoyancy and fluid pressure</small></div>
+    <div class="module"><div class="ico">♨</div><b>Energy &amp; power</b><small>Work, kinetic and potential energy</small></div>
+    <div class="module"><div class="ico">🌡</div><b>Thermodynamics</b><small>Heat, temperature and gas laws</small></div>
+  </section>
+  <footer>VECTOR LAB · Educational simulation · Idealised models, not a substitute for experimental measurements</footer>
+</main>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
